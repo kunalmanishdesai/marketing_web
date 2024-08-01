@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import './App.css';
 import Home from 'components/Home';
 import What from 'components/What';
+import How from 'components/How';
 
 function App() {
   useEffect(() => {
@@ -14,6 +15,7 @@ function App() {
     <div className='App'>
       <Home />
       <What/>
+      <How/>
     </div>
   );
 }
