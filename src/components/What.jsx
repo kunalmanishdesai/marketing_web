@@ -36,7 +36,6 @@ const What = () => {
                 justifyContent: 'start',
                 alignItems: 'center',
                 py: 6,
-                px: isSmallScreen ? 2 : 5, // Adjust padding based on screen size
             }}
         >
             <Box
