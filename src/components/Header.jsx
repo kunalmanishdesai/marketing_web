@@ -36,37 +36,6 @@ const Header = () => {
                             Abc Advertising
                         </Typography>
                     </Box>
-                    <Box sx={{ flexGrow: 1 }} /> {/* Spacer to push navigation items to the right */}
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Typography
-                            variant="body2"
-                            component="div"
-                            sx={navItemStyle}
-                        >
-                            News
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            component="div"
-                            sx={navItemStyle}
-                        >
-                            Articles
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            component="div"
-                            sx={navItemStyle}
-                        >
-                            Events
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            component="div"
-                            sx={navItemStyle}
-                        >
-                            Contact
-                        </Typography>
-                    </Box>
                 </Toolbar>
             </AppBar>
         </Box>
