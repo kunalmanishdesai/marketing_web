@@ -9,7 +9,7 @@ const Home = () => {
         <Box
             sx={{
                 width: '100%',    // Full width of the parent
-                height: '80vh',  // Full viewport height
+                pb: 8,
                 display: 'flex',
                 flexDirection: 'column',
                 backgroundImage: `linear-gradient(45deg, ${blue[100]} 30%, ${green[100]} 90%)`, // Initial gradient background
