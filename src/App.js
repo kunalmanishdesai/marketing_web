@@ -5,6 +5,9 @@ import './App.css';
 import Home from 'components/Home';
 import What from 'components/What';
 import How from 'components/How';
+import SocialMediaPara from 'components/SocialMediaPara';
+import ClientsPara from 'components/Clients';
+import NumbersPara from 'components/Numbers';
 
 function App() {
   useEffect(() => {
@@ -16,6 +19,9 @@ function App() {
       <Home />
       <What/>
       <How/>
+      <SocialMediaPara/>
+      <ClientsPara/>
+      <NumbersPara/>
     </div>
   );
 }
