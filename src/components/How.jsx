@@ -1,6 +1,5 @@
 import { Analytics, PhoneIphone, DeviceHub } from "@mui/icons-material";
 import { Box, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
-import { blue } from "@mui/material/colors";
 import React from "react";
 
 const cardContents = [
