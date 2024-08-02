@@ -1,10 +1,13 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { blue, green, orange, pink, purple, red } from '@mui/material/colors';
 import Header from './Header';
 import SocialMediaIcons from './SocialMediaIcons';
 
 const Home = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <Box
             sx={{
@@ -32,9 +35,10 @@ const Home = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',   // Center content horizontally
-                    justifyContent: 'start', // Start content from the top
+                    justifyContent: 'center', // Center content vertically
                     textAlign: 'center', // Center align text
-                    mt: 3
+                    px: 2, // Padding for smaller screens
+                    mt: isSmallScreen ? 2 : 3, // Margin top for spacing
                 }}
             >
                 <Box
@@ -43,14 +47,14 @@ const Home = () => {
                         borderRadius: 3, // Rounded corners
                         boxShadow: 20, // Slight shadow for elevation
                         p: 4,
-                        // bgcolor: 'background.paper', // Background color for contrast
+                        // backgroundColor: 'background.paper', // Background color for contrast
                         backgroundBlendMode: 'multiply', // Blend gradient with background color
                     }}
                 >
                     <Typography
                         variant="h6"
                         component="h1"
-                        sx={{ mb: 3, fontWeight: 'bold', color: 'text.primary' }}
+                        sx={{ mb: 2, fontWeight: 'bold', color: 'text.primary', fontSize: { xs: '1rem', sm: '1.25rem' } }}
                     >
                         We aspire to be the last agency you'll ever work with.
                     </Typography>
@@ -58,7 +62,7 @@ const Home = () => {
                     <Typography
                         variant="h3"
                         component="h1"
-                        sx={{ mb: 6, fontWeight: 'bold', color: 'text.primary' }}
+                        sx={{ mb: 4, fontWeight: 'bold', color: 'text.primary', fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}
                     >
                         We are growth partners who care about you and your success.
                     </Typography>
@@ -66,17 +70,18 @@ const Home = () => {
                     <Typography
                         variant="body1"
                         component="p"
-                        sx={{ mb: 3, color: 'text.secondary' }}
+                        sx={{ mb: 3, color: 'text.secondary', fontSize: { xs: '0.875rem', sm: '1rem' } }}
                     >
                         Any worthwhile relationship requires work from both parties to be successful. We partner with our clients to understand the why behind your business, the goals you aspire to, and the impact this will have on your customers and business. We translate this into a unique and authentic marketing strategy to get us there together.
                     </Typography>
 
-                    <Button variant="contained" sx={{ mt:3, backgroundColor: '#000000' }}>Book a call now</Button>
-                    <SocialMediaIcons/>
+                    <Button variant="contained" sx={{ mt: 2, backgroundColor: '#000000', fontSize: { xs: '0.875rem', sm: '1rem' } }}>
+                        Book a call now
+                    </Button>
+                    <SocialMediaIcons />
                 </Box>
             </Box>
         </Box>
-        
     );
 }
 
