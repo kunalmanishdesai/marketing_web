@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { grey, blue } from "@mui/material/colors";
 import React from "react";
 import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
@@ -19,50 +19,50 @@ const icons = [
 ];
 
 const SocialMediaPara = () => {
-    // Divide icons into two rows
-    const firstRowIcons = icons.slice(0, 5);
-    const secondRowIcons = icons.slice(5);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const renderIcons = (icons) => (
-        <Box
-            sx={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
-                py: 2,
-            }}
-        >
+        <Grid container spacing={3} justifyContent={isSmallScreen ? "start" : "center"}  >
             {icons.map((icon, index) => (
-                <Box
+                <Grid
+                    item
+                    xs={6} // 2 icons per row on extra small screens
+                    sm={4} // 3 icons per row on small screens
+                    md={3} // 4 icons per row on medium screens
+                    lg={2.4} // 5 icons per row on large screens
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
                     key={index}
-                    sx={{
-                        width: 100,
-                        height: 100,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        p: 2,
-                        borderRadius: 4,
-                        backgroundColor: 'white',
-                        boxShadow: 3,
-                        position: 'relative',
-                        overflow: 'hidden',
-                    }}
                 >
-                    <Box sx={{ zIndex: 2 }}>
-                        {icon.icon}
+                    <Box
+                        sx={{
+                            width: 100,
+                            height: 100,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderRadius: 4,
+                            backgroundColor: 'white',
+                            boxShadow: 3,
+                            position: 'relative',
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <Box>
+                            {icon.icon}
+                        </Box>
                     </Box>
-                </Box>
+                </Grid>
             ))}
-        </Box>
+        </Grid>
     );
 
     return (
         <Box
             sx={{
                 width: '100%',    // Full width of the parent
-                height: '50vh',  // Full viewport height
                 display: 'flex',
                 flexDirection: 'column',
                 backgroundImage: `linear-gradient(105deg, ${grey[100]} 0%, ${blue[100]} 100%)`, // Gradient background
@@ -74,9 +74,10 @@ const SocialMediaPara = () => {
         >
             <Box
                 sx={{
-                    textAlign: 'left', // Align text to the left
+                    textAlign: isSmallScreen ? 'center' : 'left', // Align text to the left or center based on screen size
                     borderRadius: 2, // Rounded corners
                     mb: 5, // Margin bottom for spacing
+                    px: 2, // Padding for smaller screens
                 }}
             >
                 <Typography
@@ -86,14 +87,14 @@ const SocialMediaPara = () => {
                         fontWeight: 700, // Bolder font weight
                         color: 'text.primary',
                         lineHeight: 1.2, // Tighter line height for a compact look
+                        fontSize: isSmallScreen ? '1.5rem' : '2.125rem', // Adjust font size based on screen size
                     }}
                 >
                     We Cover All Super-Scalable Channels
                 </Typography>
             </Box>
 
-            {renderIcons(firstRowIcons)}
-            {renderIcons(secondRowIcons)}
+            {renderIcons(icons)}
         </Box>
     );
 }
